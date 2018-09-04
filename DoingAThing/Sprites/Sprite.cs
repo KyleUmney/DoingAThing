@@ -11,8 +11,17 @@ namespace DoingAThing.Sprites
   public abstract class Sprite : Component, ICloneable
   {
     protected Texture2D _texture;
+
     protected float _rotation;
+
     public Vector2 Position;
+
+    public bool CanJump = true;
+
+    public Bullet Bullet { get; set; }
+
+    public int JumpTimer = 0;
+    public bool IsRemoved;
     public float Scale { get; set; }
     public Color Colour { get; set; }
     public float Layer { get; set; }
@@ -36,13 +45,17 @@ namespace DoingAThing.Sprites
 
       Scale = 1f;
     }
+    public override void Update(GameTime gameTime)
+    {
+
+    }
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
       spriteBatch.Draw(_texture, Position, null, Colour, _rotation, Origin, Scale, SpriteEffects.None, Layer);
     }
     public object Clone()
     {
-      throw new NotImplementedException();
+      return this.MemberwiseClone();
     }
   }
 }

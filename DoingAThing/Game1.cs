@@ -34,6 +34,7 @@ namespace DoingAThing
     /// </summary>
     protected override void Initialize()
     {
+      IsMouseVisible = true;
       graphics.PreferredBackBufferWidth = screenWidth;
       graphics.PreferredBackBufferHeight = screenHeight;
       graphics.ApplyChanges();
