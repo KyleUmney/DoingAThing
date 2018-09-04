@@ -53,8 +53,5 @@ namespace DoingAThing.Sprites
       base.Update(gameTime);
 
     }
-
-
-
   }
 }

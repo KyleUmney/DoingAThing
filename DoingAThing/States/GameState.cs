@@ -14,7 +14,7 @@ namespace DoingAThing.States
   class GameState : State
   {
     public List<Sprite> _sprites;
-    public GameState(Game game, ContentManager content) 
+    public GameState(Game game, ContentManager content)
       : base(game, content)
     {
     }
@@ -23,6 +23,7 @@ namespace DoingAThing.States
       var playerTexure = _content.Load<Texture2D>("Sprites/Player");
       var bulletTexture = _content.Load<Texture2D>("Sprites/Bullet");
       var weaponTexture = _content.Load<Texture2D>("Sprites/Weapon");
+      var enemyTexute = _content.Load<Texture2D>("Sprites/LittleBug");
 
       _sprites = new List<Sprite>();
 
@@ -43,6 +44,14 @@ namespace DoingAThing.States
         Layer = 0.0f,
         Scale = 0.5f,
       });
+
+      _sprites.Add(new LittleBugs(enemyTexute)
+      {
+        Colour = Color.White,
+        Position = new Vector2(Game1.screenWidth / 2, Game1.screenHeight / 2),
+        Layer = 0.0f,
+        Scale = 0.8f,
+      });
     }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -54,7 +63,7 @@ namespace DoingAThing.States
 
       spriteBatch.End();
     }
-   
+
     public override void PostUpdate(GameTime gameTime)
     {
       int spriteCount = _sprites.Count;
@@ -82,7 +91,8 @@ namespace DoingAThing.States
       foreach (var sprite in _sprites)
         sprite.Update(gameTime);
 
-      _sprites[1].Position = _sprites[0].Position;
+      _sprites[1].Position.X = _sprites[0].Position.X + 34;
+      _sprites[1].Position.Y = _sprites[0].Position.Y + 18;
     }
   }
 }
