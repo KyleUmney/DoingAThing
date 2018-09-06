@@ -36,14 +36,14 @@ namespace DoingAThing.States
         Scale = 1f,
       });
 
-      _sprites.Add(new PlayerWeapon(weaponTexture)
-      {
-        Colour = Color.White,
-        Position = new Vector2(_sprites[0].Position.X, _sprites[0].Position.Y),
-        Bullet = new Bullet(bulletTexture),
-        Layer = 0.0f,
-        Scale = 0.5f,
-      });
+      //_sprites.Add(new PlayerWeapon(weaponTexture)
+      //{
+      //  Colour = Color.White,
+      //  Position = new Vector2(_sprites[0].Position.X, _sprites[0].Position.Y),
+      //  Bullet = new Bullet(bulletTexture),
+      //  Layer = 0.0f,
+      //  Scale = 0.5f,
+      //});
 
       _sprites.Add(new LittleBugs(enemyTexute)
       {
@@ -91,8 +91,8 @@ namespace DoingAThing.States
       foreach (var sprite in _sprites)
         sprite.Update(gameTime);
 
-      _sprites[1].Position.X = _sprites[0].Position.X + 34;
-      _sprites[1].Position.Y = _sprites[0].Position.Y + 18;
+      //_sprites[1].Position.X = _sprites[0].Position.X + 34;
+      //_sprites[1].Position.Y = _sprites[0].Position.Y + 18;
     }
   }
 }
